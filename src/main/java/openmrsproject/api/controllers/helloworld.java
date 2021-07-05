@@ -1,4 +1,4 @@
-package openmrsproject.Controller;
+package openmrsproject.api.controllers;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

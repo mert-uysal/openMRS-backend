@@ -22,10 +22,13 @@ public class User {
     @Column(name = "user_identity_num")
     private String userIdentityNum;
 
+    @Column(name = "user_username")
+    private String username;
+
     @Column(name="user_password")
     private String userPassword;
 
-    @Column(name="register_date")
+    @Column(name="user_register_date")
     private LocalDate registerDate;
 
 }

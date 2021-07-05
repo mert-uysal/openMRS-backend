@@ -3,20 +3,20 @@ package openmrsproject.entities.concretes;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import openmrsproject.entities.abstracts.User;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Data
 @Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "patients")
-public class Patient extends User {
+public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "patient_id")
     private int id;
 
     @Column(name="patient_identity_num")
@@ -27,9 +27,6 @@ public class Patient extends User {
 
     @Column(name = "patient_lastname")
     private String patientLastName;
-
-    @Column(name = "patient_familyMember")
-    private String patientFamilyMember;
 
     @Column(name = "patient_gender")
     private char patientGender;
@@ -45,4 +42,7 @@ public class Patient extends User {
 
     @Column(name = "patient_address")
     private String patientAddress;
+
+    @Column(name = "patient_familyMember")
+    private String patientFamilyMember;
 }
