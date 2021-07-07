@@ -40,4 +40,10 @@ public class Doctor extends User {
 
     @Column(name = "doctor_dateOfBirth")
     private LocalDate doctorDateOfBirth;
+
+    @Column(name = "doctor_address")
+    private String doctorAddress;
+
+    @Column(name = "doctor_isRetired")
+    private boolean doctorIsRetired;
 }

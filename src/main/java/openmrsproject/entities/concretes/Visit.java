@@ -20,10 +20,10 @@ public class Visit {
     private int id;
 
     @Column(name = "patient_identity_num")
-    private int patientId;
+    private String patientId;
 
     @Column(name = "doctor_identity_num")
-    private int doctorId;
+    private String doctorId;
 
     @Column(name = "visit_date")
     private LocalDate visitDate;
