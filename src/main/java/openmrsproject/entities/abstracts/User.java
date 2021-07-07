@@ -3,15 +3,17 @@ package openmrsproject.entities.abstracts;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
-@Table(name="users")
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name="users")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 
     @Id

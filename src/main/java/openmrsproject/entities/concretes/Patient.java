@@ -37,12 +37,12 @@ public class Patient {
     @Column(name = "patient_email")
     private String patientEmail;
 
-    @Column(name = "patient_dateOfBirth")
+    @Column(name = "patient_dateofbirth")
     private LocalDate patientDateOfBirt;
 
     @Column(name = "patient_address")
     private String patientAddress;
 
-    @Column(name = "patient_familyMember")
+    @Column(name = "patient_familymember")
     private String patientFamilyMember;
 }

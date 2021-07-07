@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import openmrsproject.entities.abstracts.User;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,12 +39,12 @@ public class Doctor extends User {
     @Column(name = "doctor_email")
     private String doctorEmail;
 
-    @Column(name = "doctor_dateOfBirth")
+    @Column(name = "doctor_dateofbirth")
     private LocalDate doctorDateOfBirth;
 
     @Column(name = "doctor_address")
     private String doctorAddress;
 
-    @Column(name = "doctor_isRetired")
+    @Column(name = "doctor_isretired")
     private boolean doctorIsRetired;
 }
