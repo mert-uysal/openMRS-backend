@@ -7,10 +7,7 @@ import lombok.NoArgsConstructor;
 import openmrsproject.entities.abstracts.User;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -19,6 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "doctors")
+@PrimaryKeyJoinColumn(name = "doctor_Id")
 public class Doctor extends User {
 
     @Column(name = "doctor_identity_num")

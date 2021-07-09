@@ -14,6 +14,7 @@ import java.util.List;
 
 @Service
 public class PatientManager implements PatientService {
+    @Autowired
     private PatientDao patientDao;
 
     @Override

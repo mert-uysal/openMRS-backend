@@ -13,9 +13,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Table(name = "patients")
 public class Patient {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name ="id_gen_seq", sequenceName="id_gen_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_gen_seq")
+    /*@GeneratedValue(strategy = GenerationType.IDENTITY)*/
     @Column(name = "patient_id")
     private int id;
 
@@ -29,7 +30,7 @@ public class Patient {
     private String patientLastName;
 
     @Column(name = "patient_gender")
-    private char patientGender;
+    private String patientGender;
 
     @Column(name = "patient_phone_num")
     private String patientPhoneNum;
