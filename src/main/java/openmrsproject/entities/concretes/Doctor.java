@@ -26,7 +26,7 @@ public class Doctor extends User {
     private String doctorFirstName;
 
     @Column(name = "doctor_lastname")
-    private String doctorLastname;
+    private String doctorLastName;
 
     @Column(name = "doctor_gender")
     private char doctorGender;

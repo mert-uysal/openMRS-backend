@@ -12,14 +12,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DoctorManager implements DoctorService {
+    @Autowired
     private DoctorDao doctorDao;
+    @Autowired
     private UserDao userDao;
 
     @Override
     public DataResult<Doctor> add(Doctor doctor) {
-        User user = new User(doctor.getId(), doctor.getUserIdentityNum(), doctor.getUsername(),
-                doctor.getUserPassword(), doctor.getRegisterDate());
-        this.userDao.save(user);
         return new SuccessDataResult<Doctor>(this.doctorDao.save(doctor), "Doktor Eklendi.");
     }
 

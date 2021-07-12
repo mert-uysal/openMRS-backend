@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -17,7 +18,8 @@ import java.time.LocalDate;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name ="user_id_gen_seq", sequenceName="user_id_gen_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_gen_seq")
     @Column(name="user_id")
     private int id;
 
@@ -31,6 +33,5 @@ public class User {
     private String userPassword;
 
     @Column(name="user_register_date")
-    private LocalDate registerDate;
-
+    private LocalDateTime registerDate;
 }

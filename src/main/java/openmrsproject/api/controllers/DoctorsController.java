@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.print.Doc;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/api/doctors")
@@ -29,6 +34,11 @@ public class DoctorsController {
 
     @PostMapping("/addDoctor")
     DataResult<Doctor> addDoctor(@Valid @RequestBody Doctor doctor) {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String tempDate = formatter.format(date);
+        doctor.setRegisterDate(LocalDateTime.parse(tempDate, formatter2));
         return this.doctorService.add(doctor);
     }
 }
