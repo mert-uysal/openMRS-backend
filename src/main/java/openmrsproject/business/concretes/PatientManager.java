@@ -2,9 +2,8 @@ package openmrsproject.business.concretes;
 
 import openmrsproject.business.abstracts.PatientService;
 import openmrsproject.core.utilities.results.DataResult;
-import openmrsproject.core.utilities.results.Result;
+import openmrsproject.core.utilities.results.ErrorDataResult;
 import openmrsproject.core.utilities.results.SuccessDataResult;
-import openmrsproject.core.utilities.results.SuccessResult;
 import openmrsproject.dataAccess.abstracts.PatientDao;
 import openmrsproject.entities.concretes.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +28,15 @@ public class PatientManager implements PatientService {
 
     @Override
     public DataResult<Patient> getPatientByIdentityNum(String identityNum) {
-        return new SuccessDataResult<Patient>(this.patientDao.getPatientByPatientIdentityNum(identityNum), "Hasta Görüntüleme Başarılı.");
+        Patient patient = this.patientDao.findPatientByPatientIdentityNum(identityNum);
+        if (patient != null)
+            return new SuccessDataResult<Patient>(patient, "Hasta Görüntüleme Başarılı.");
+        else
+            return new ErrorDataResult<Patient>(patient, "Hasta görüntüleme Başarısız");
     }
 
     @Override
     public DataResult<List<Patient>> getAllPatient() {
-        return new SuccessDataResult<List<Patient>>(this.patientDao.findAll(),"Tüm Hastalar Görünülendi.");
+        return new SuccessDataResult<List<Patient>>(this.patientDao.findAll(), "Tüm Hastalar Görünülendi.");
     }
 }

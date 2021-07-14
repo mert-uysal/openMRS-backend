@@ -10,6 +10,8 @@ import openmrsproject.entities.concretes.Doctor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DoctorManager implements DoctorService {
     @Autowired
@@ -19,11 +21,16 @@ public class DoctorManager implements DoctorService {
 
     @Override
     public DataResult<Doctor> add(Doctor doctor) {
-        return new SuccessDataResult<Doctor>(this.doctorDao.save(doctor), "Doktor Eklendi.");
+        return new SuccessDataResult<Doctor>(this.doctorDao.save(doctor), "Doktor Kaydı Başarılı.");
     }
 
     @Override
     public DataResult<Doctor> getDoctorByIdentityNum(String identityNum) {
         return new SuccessDataResult<Doctor>(this.doctorDao.getDoctorByDoctorIdentityNum(identityNum));
+    }
+
+    @Override
+    public DataResult<List<Doctor>> getAllDoctors() {
+        return new SuccessDataResult<List<Doctor>>(this.doctorDao.findAll(), "Tüm Doktorlar Listelendi.");
     }
 }

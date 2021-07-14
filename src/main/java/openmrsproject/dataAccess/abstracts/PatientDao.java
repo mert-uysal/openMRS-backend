@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface PatientDao extends JpaRepository<Patient, Integer> {
     //@Query("select p from Patient p where p.patientIdentityNum = ?1")
     //Patient getByidentityNumber(@Param("identityNumber") String identityNumber);
-    Patient getPatientByPatientIdentityNum(String identityNumber);
+    Patient findPatientByPatientIdentityNum(String identityNumber);
 }

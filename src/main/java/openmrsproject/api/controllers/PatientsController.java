@@ -4,9 +4,10 @@ import openmrsproject.business.abstracts.PatientService;
 import openmrsproject.core.utilities.results.DataResult;
 import openmrsproject.entities.concretes.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -22,17 +23,20 @@ public class PatientsController {
     }
 
     @PostMapping("/delete")
-    public void deletePatient(@RequestParam Patient patient){
+    public void deletePatient(@RequestParam Patient patient) {
         this.patientService.delete(patient);
     }
 
-    @GetMapping("/getById")
-    public DataResult<Patient> getPatientByIdentityNum(@RequestParam String identityNum) {
-        return this.patientService.getPatientByIdentityNum(identityNum);
+    @PostMapping("/getById")
+    public DataResult<Patient> getPatientByIdentityNum(HttpServletRequest req) {
+        /*if (identityNum != null && identityNum.charAt(identityNum.length() - 1) == '=') {
+            identityNum = identityNum.substring(0,identityNum.length() - 1);
+        }*/
+        return this.patientService.getPatientByIdentityNum(req.getParameter("id"));
     }
 
     @GetMapping("/getAllPatients")
-    public DataResult<List<Patient>> getAllPatients(){
+    public DataResult<List<Patient>> getAllPatients() {
         return this.patientService.getAllPatient();
     }
 }
