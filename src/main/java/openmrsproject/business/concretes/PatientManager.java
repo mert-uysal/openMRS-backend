@@ -37,6 +37,6 @@ public class PatientManager implements PatientService {
 
     @Override
     public DataResult<List<Patient>> getAllPatient() {
-        return new SuccessDataResult<List<Patient>>(this.patientDao.findAll(), "Tüm Hastalar Görünülendi.");
+        return new SuccessDataResult<List<Patient>>(this.patientDao.findAll(), "Tüm Hastalar Görüntülendi.");
     }
 }
