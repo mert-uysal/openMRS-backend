@@ -46,14 +46,14 @@ public class VisitsController {
         return this.visitService.updateVisit(visit);
     }
 
-    @GetMapping("/getPatientVisitById")
-    public DataResult<List<VisitInfoFull>> getPatientAllVisits(@RequestBody String patientIdentityNum) {
-        return this.visitService.getPatientAllVisits(patientIdentityNum);
+    @PostMapping("/getPatientVisitById")
+    public DataResult<List<VisitInfoFull>> getPatientAllVisits(HttpServletRequest req) {
+        return this.visitService.getPatientAllVisits(req.getParameter("id"));
     }
 
     @GetMapping("/getDoctorVisitById")
-    public DataResult<List<VisitInfoFull>> getDoctorAllVisits(@RequestBody String doctorIdentityNum) {
-        return this.visitService.getDoctorAllVisits(doctorIdentityNum);
+    public DataResult<List<VisitInfoFull>> getDoctorAllVisits(HttpServletRequest req) {
+        return this.visitService.getDoctorAllVisits(req.getParameter("id"));
     }
 
     @GetMapping("/getAllActiveVisits")

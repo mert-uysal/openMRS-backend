@@ -23,8 +23,13 @@ public class PatientsController {
     }
 
     @PostMapping("/delete")
-    public void deletePatient(@RequestParam Patient patient) {
+    public void deletePatient(@RequestBody Patient patient) {
         this.patientService.delete(patient);
+    }
+
+    @PutMapping("/updatePatient")
+    public DataResult<Patient> updatePatient(@RequestBody Patient patient) {
+        return this.patientService.updatePatient(patient);
     }
 
     @PostMapping("/getById")
@@ -38,5 +43,17 @@ public class PatientsController {
     @GetMapping("/getAllPatients")
     public DataResult<List<Patient>> getAllPatients() {
         return this.patientService.getAllPatient();
+    }
+
+    @GetMapping("/getAllinPatients")
+    public DataResult<List<Patient>> getAllinPatients(String patientStatus) {
+        patientStatus = "Yatan Hasta";
+        return this.patientService.getAllinPatient(patientStatus);
+    }
+
+    @GetMapping("/getAlloutPatients")
+    public DataResult<List<Patient>> getAlloutPatients(String patientStatus) {
+        patientStatus = "Ayakta Tedavi";
+        return this.patientService.getAllOutPatient(patientStatus);
     }
 }

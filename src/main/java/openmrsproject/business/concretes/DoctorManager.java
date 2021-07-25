@@ -26,7 +26,7 @@ public class DoctorManager implements DoctorService {
 
     @Override
     public DataResult<Doctor> getDoctorByIdentityNum(String identityNum) {
-        return new SuccessDataResult<Doctor>(this.doctorDao.getDoctorByDoctorIdentityNum(identityNum));
+        return new SuccessDataResult<Doctor>(this.doctorDao.getDoctorByDoctorIdentityNum(identityNum),"Doktor Bilgisi Görüntülendi.");
     }
 
     @Override

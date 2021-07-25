@@ -14,13 +14,13 @@ import java.time.LocalDate;
 @Table(name = "patients")
 public class Patient {
     @Id
-    @SequenceGenerator(name ="id_gen_seq", sequenceName="id_gen_seq", allocationSize = 1)
+    @SequenceGenerator(name = "id_gen_seq", sequenceName = "id_gen_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_gen_seq")
     /*@GeneratedValue(strategy = GenerationType.IDENTITY)*/
     @Column(name = "patient_id")
     private int id;
 
-    @Column(name="patient_identity_num")
+    @Column(name = "patient_identity_num")
     private String patientIdentityNum;
 
     @Column(name = "patient_firstname")
@@ -46,4 +46,7 @@ public class Patient {
 
     @Column(name = "patient_familymember")
     private String patientFamilyMember;
+
+    @Column(name = "patient_status")
+    private String patientStatus;
 }

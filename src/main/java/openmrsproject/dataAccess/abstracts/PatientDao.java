@@ -6,9 +6,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface PatientDao extends JpaRepository<Patient, Integer> {
     //@Query("select p from Patient p where p.patientIdentityNum = ?1")
     //Patient getByidentityNumber(@Param("identityNumber") String identityNumber);
     Patient findPatientByPatientIdentityNum(String identityNumber);
+    List<Patient> getAllByPatientStatusEquals(String patientStatus);
 }
