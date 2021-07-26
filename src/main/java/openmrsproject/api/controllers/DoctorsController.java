@@ -6,6 +6,7 @@ import openmrsproject.entities.concretes.Doctor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.Doc;
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -43,5 +44,10 @@ public class DoctorsController {
     @GetMapping("/getAllDoctors")
     public DataResult<List<Doctor>> getAllDoctors() {
         return this.doctorService.getAllDoctors();
+    }
+
+    @PutMapping("/updateUser")
+    public DataResult<Doctor> updateDoctor(Doctor doctor) {
+        return this.doctorService.updateDoctor(doctor);
     }
 }

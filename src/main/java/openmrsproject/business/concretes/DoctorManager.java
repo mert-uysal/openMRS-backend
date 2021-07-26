@@ -7,6 +7,7 @@ import openmrsproject.dataAccess.abstracts.DoctorDao;
 import openmrsproject.dataAccess.abstracts.UserDao;
 import openmrsproject.entities.abstracts.User;
 import openmrsproject.entities.concretes.Doctor;
+import openmrsproject.entities.concretes.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,10 @@ public class DoctorManager implements DoctorService {
     @Override
     public DataResult<List<Doctor>> getAllDoctors() {
         return new SuccessDataResult<List<Doctor>>(this.doctorDao.findAll(), "Tüm Doktorlar Listelendi.");
+    }
+
+    @Override
+    public DataResult<Doctor> updateDoctor(Doctor doctor) {
+        return new SuccessDataResult<Doctor>(this.doctorDao.save(doctor), "Bilgiler Güncellendi.");
     }
 }
