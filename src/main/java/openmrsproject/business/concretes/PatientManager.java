@@ -20,9 +20,9 @@ public class PatientManager implements PatientService {
     }
 
     @Override
-    public Result delete(Patient patient) {
+    public void delete(Patient patient) {
         this.patientDao.deleteById(patient.getId());
-        return new SuccessResult(true,"Hasta Silindi.");
+        //new SuccessResult(true, "Hasta Silindi.");
     }
 
     @Override
